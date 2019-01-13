@@ -23,19 +23,22 @@ class AuthServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        /*$this->registerPolicies();*/
-
-        //
+        
         $this->registerPolicies();
 
+		// Add those code for using @can access method in Laravel view
+		
+		// Can Access by Admin
         Gate::define('isAdmin', function($user){
             return $user->USER_TYPE == 'A';
         });
     
+		// Can Access by Trainer
         Gate::define('isTrainer', function($user){
             return $user->USER_TYPE == 'T';
         });
 
+		// Can Access by Student
         Gate::define('isStudent', function($user){
             return $user->USER_TYPE == 'S';
         });
