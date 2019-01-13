@@ -23,8 +23,8 @@
                       @endif 
                       <!-- User Type Check  -->
 
+					  <!-- ===  This is the different way of using can method  ====  -->
                       @if($role == 'T')
-                      
                       <!-- ===  Single Parent Navs  ====  -->
                       <li data-toggle="collapse" data-target="#resource" class="collapsed">
                         <a href="#"><span class="icon"><i class="far fa-folder-open fa-lg"></i></span> Resource <span class="arrow"></span></a>
@@ -51,7 +51,9 @@
                       <!-- ===  Single Parent Navs  ====  -->
                       @endif
 
-
+					  
+					  
+					  <!-- ===  Only Admin can see this section  ====  -->
                       @can('isAdmin')
                       <!-- ===  Single Parent Navs  ====  -->
                       <li data-toggle="collapse" data-target="#user" class="collapsed">
@@ -78,6 +80,8 @@
                       @endcan
 					  
 					  
+					  
+					  <!-- ===  Only Student can see this section  ====  -->
 					  @can('isStudent')
                       <!-- ===  Single Parent Navs  ====  -->
                       <li data-toggle="collapse" data-target="#user" class="collapsed">
